@@ -11,7 +11,7 @@ const Home = () => {
 	return (
 		<div
 			className={
-				"flex items-center p-4 bg-pink-400 bg-gradient-to-br from-pink-400 to-pink-300"
+				"flex items-center p-4 bg-red-400 bg-gradient-to-br from-red-400 to-red-300"
 			}
 		>
 			<button
