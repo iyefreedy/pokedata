@@ -5,7 +5,7 @@ const Card = ({ url }) => {
 	const { state, loading } = useCardFetch(url);
 	return (
 		<div
-			className={`w-56 h-40 p-4 bg-white rounded-md shadow-md  ${
+			className={`w-56 h-40 p-4 bg-white bg-gradient-to-b from-slate-100 to-white rounded-md shadow-md  ${
 				loading ? "animate-skeleton" : "animate-none"
 			}`}
 		>
