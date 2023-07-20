@@ -8,8 +8,6 @@ const Home = () => {
 
 	if (error) return <div>Something went wrong!</div>;
 
-	if (loading) return <div>loading</div>;
-
 	return (
 		<div
 			className={
