@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react";
 
 const pokemon = {
-	id: 0,
+	id: null,
 	name: null,
 	sprites: {
 		front_default: null,
 	},
+	weight: 0,
 };
 
-export const useCardFetch = (url) => {
+export const usePokemonFetch = (name) => {
 	const [state, setState] = useState(pokemon);
-	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	const fetchPokemon = async () => {
-		setLoading(true);
 		setError(false);
+		setLoading(true);
 
 		try {
-			const pokemon = await (await fetch(url)).json();
+			const pokemon = await (
+				await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+			).json();
 
 			setState(pokemon);
 		} catch (error) {
-			setError(false);
+			setError(true);
 		}
 
 		setLoading(false);
@@ -30,8 +33,7 @@ export const useCardFetch = (url) => {
 
 	useEffect(() => {
 		fetchPokemon();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [name]);
 
-	return { state, error, loading };
+	return { state };
 };

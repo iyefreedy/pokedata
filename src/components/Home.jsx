@@ -3,17 +3,13 @@ import Card from "./Card";
 import PropTypes from "prop-types";
 
 const Home = () => {
-	const { state, loading, error, setCurrent } = useHomeFetch();
+	const { state, error, setCurrent } = useHomeFetch();
 	const { previous, next } = state;
 
 	if (error) return <div>Something went wrong!</div>;
 
 	return (
-		<div
-			className={
-				"flex items-center p-4 bg-red-400 bg-gradient-to-br from-red-400 to-red-300"
-			}
-		>
+		<div className={"flex items-center p-4 bg-white"}>
 			<button
 				type="button"
 				className="bg-indigo-500 p-2 rounded text-white"

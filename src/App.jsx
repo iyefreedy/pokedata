@@ -1,13 +1,19 @@
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Pokemon from "./components/Pokemon";
+import Header from "./components/Header";
 
-import Home from './components/Home'
+const App = () => (
+	<BrowserRouter>
+		<Header />
 
-function App() {
+		<Routes>
+			<Route path="/" element={<div></div>} />
+			<Route path="pokemon" element={<Home />} />
+			<Route path="pokemon/:name" element={<Pokemon />} />
+			<Route path="/*" element={<div>Not found</div>} />
+		</Routes>
+	</BrowserRouter>
+);
 
-  return (
-    <>
-      <Home />
-    </>
-  )
-}
-
-export default App
+export default App;
